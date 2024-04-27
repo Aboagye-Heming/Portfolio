@@ -1,8 +1,9 @@
 body {
   margin: 0px;
   padding: 0px;
-  font-family: "Roboto", sans-serif; 
+  font-family: "Roboto", sans-serif;
   background-color: #333;
+  color: #fff;
 }
 
 h1,
@@ -15,3 +16,29 @@ p {
   margin: 0px;
   padding: 0px;
 }
+.container {
+  padding: 0 5rem;
+}
+
+/* fonts */
+.sm{
+  font-weight: 400;
+}
+.md{
+  font-weight: 700;
+}
+.lg{
+  font-weight: 900;
+}
+
+/* colors */
+.primary {
+  color: #333;
+}
+.secondary {
+  color: #ff4500;
+}
+.tertiary{
+  color: #fff;
+}
+
