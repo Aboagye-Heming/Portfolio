@@ -1,93 +1,72 @@
 <template>
   <div>
-    <div>
+    <div class="about-section">
       <h3>My Tech Stack</h3>
       <p>Technologies I have been working with</p>
     </div>
     <div class="stack">
-      <div class="skill">
-        <img src="../assets/images/html 5.png" alt="html logo" />
-        <p>HTML</p>
+      <div class="skill" v-for="(skill, index) in skills" :key="index">
+        <img :src="require(`../assets/images/${skill.image}`)" :alt="skill.name" class="skill-img" />
+        <p>{{ skill.name }}</p>
       </div>
-      <div class="skill">
-        <img src="../assets/images/css.png" alt="css logo" />
-        <p>CSS</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/js.png" alt="javascript logo" />
-        <p>Javascript</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/react.png" alt="react logo" />
-        <p>React</p>
-      </div>
-      <div class="skill vue">
-        <img src="../assets/images/next-js-logo.png" alt="next logo" />
-        <p>Next js</p>
-      </div>
-      <div class="skill vue">
-        <img src="../assets/images/vue logo.png" alt="vue.js logo" />
-        <p>Vue</p>
-      </div>
-      <div class="skill vue">
-        <img src="../assets/images/ionic-logo.png" alt="Ionic logo" />
-        <p>Ionic Vue</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/bootstrap.png" alt="Bootstrap logo" />
-        <p>Bootstrap</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/tailwind.png" alt="TailwindCss logo" />
-        <p>Tailwind CSS</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/sass.png" alt="Sass logo" />
-        <p>Sass</p>
-      </div>
-      <div class="skill vue">
-        <img src="../assets/images/figma-logo.png" alt="Figma logo" />
-        <p>Figma</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/vscode.png" alt="vs code logo" />
-        <p>VS code</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/git.png" alt="Git logo" />
-        <p>Git</p>
-      </div>
-      <div class="skill">
-        <img src="../assets/images/github.png" alt="Github logo" />
-        <p>Github</p>
-      </div>
-      <div class="skill vue">
-        <img src="../assets/images/bitbucket-logo.png" alt="BitBucket logo" />
-        <p>BitBucket</p>
-      </div>
-      
     </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const skills = [
+  { name: 'HTML', image: 'html 5.png' },
+  { name: 'CSS', image: 'css.png' },
+  { name: 'JavaScript', image: 'js.png' },
+  { name: 'React', image: 'react.png' },
+  { name: 'Next.js', image: 'next-js-logo.png' },
+  { name: 'Vue', image: 'vue logo.png' },
+  { name: 'Ionic Vue', image: 'ionic-logo.png' },
+  { name: 'Bootstrap', image: 'bootstrap.png' },
+  { name: 'Tailwind CSS', image: 'tailwind.png' },
+  { name: 'Sass', image: 'sass.png' },
+  { name: 'Figma', image: 'figma-logo.png' },
+  { name: 'VS Code', image: 'vscode.png' },
+  { name: 'Git', image: 'git.png' },
+  { name: 'GitHub', image: 'github.png' },
+  { name: 'BitBucket', image: 'bitbucket-logo.png' }
+];
+</script>
 
 <style scoped>
+.about-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .stack {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
+
 .skill {
   text-align: center;
   margin: 2rem 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
+
+.skill:hover {
+  transform: translateY(-15px);
+}
+
 .skill img {
   margin-bottom: 1rem;
-}
-.vue img {
   width: 100px;
   height: 100px;
+}
+
+.skill p {
+  margin: 0;
+  font-size: 1.2rem;
 }
 </style>
