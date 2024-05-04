@@ -96,4 +96,10 @@ const projects = [
 .project-link:hover {
   background-color: #e64000;
 }
+
+@media screen and (max-width: 768px) {
+  .projects-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
 </style>

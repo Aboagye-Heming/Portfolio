@@ -5,15 +5,15 @@
       <div class="about-content">
         <p>
           My name is Kwabena Aboagye-Heming, and I am a passionate software
-          developer specializing in web and mobile development. With several years
-          of experience in the industry, I have a proven track record of
+          developer specializing in web and mobile development. With several
+          years of experience in the industry, I have a proven track record of
           delivering high-quality solutions to meet client needs.
         </p>
         <p>
           I have expertise in a variety of programming languages and frameworks,
-          including HTML/CSS, JavaScript, Vue.js, React, Node.js, and more. I am
-          dedicated to staying up-to-date with the latest technologies and best
-          practices to ensure that my work is always cutting-edge.
+          including HTML/CSS, JavaScript, Vue.js, React,and more. I am dedicated
+          to staying up-to-date with the latest technologies and best practices
+          to ensure that my work is always cutting-edge.
         </p>
         <p>
           Outside of coding, I enjoy spending time outdoors, exploring new
@@ -22,9 +22,27 @@
           interesting challenges.
         </p>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
-          <a href="https://twitter.com/your-profile" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
-          <a href="https://www.instagram.com/your-profile" target="_blank" rel="noopener noreferrer" class="social-link">Instagram</a>
+          <a
+            href="https://www.linkedin.com/in/your-profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            >LinkedIn</a
+          >
+          <a
+            href="https://twitter.com/your-profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            >Twitter</a
+          >
+          <a
+            href="https://www.instagram.com/your-profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            >Instagram</a
+          >
         </div>
       </div>
     </div>

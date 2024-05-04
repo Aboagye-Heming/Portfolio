@@ -11,27 +11,47 @@
         </div>
         <ul :class="{ 'nav-menu active': isMenuOpen, 'nav-menu': !isMenuOpen }">
           <li class="nav-item">
-            <router-link to="/" class="nav-links" @click="closeMenu"
+            <router-link
+              to="/"
+              class="nav-links"
+              @click="closeMenu"
+              :class="{ 'active': $route.path === '/' }"
               >Home</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/about" class="nav-links" @click="closeMenu"
+            <router-link
+              to="/about"
+              class="nav-links"
+              @click="closeMenu"
+              :class="{ 'active': $route.path === '/about' }"
               >About</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/skills" class="nav-links" @click="closeMenu"
+            <router-link
+              to="/skills"
+              class="nav-links"
+              @click="closeMenu"
+              :class="{ 'active': $route.path === '/skills' }"
               >Skills</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/projects" class="nav-links" @click="closeMenu"
+            <router-link
+              to="/projects"
+              class="nav-links"
+              @click="closeMenu"
+              :class="{ 'active': $route.path === '/projects' }"
               >Projects</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link to="/contact" class="nav-links" @click="closeMenu"
+            <router-link
+              to="/contact"
+              class="nav-links"
+              @click="closeMenu"
+              :class="{ 'active': $route.path === '/contact' }"
               >Contact</router-link
             >
           </li>
@@ -106,6 +126,13 @@ function closeMenu() {
 
 .nav-links:hover {
   color: #ff4500;
+}
+
+.active {
+  font-weight: bold; /* Example styling for active state */
+  /* You can add more styles to highlight the active link */
+  color: #ff4500;
+
 }
 
 @media screen and (max-width: 960px) {
