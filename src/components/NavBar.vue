@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar">
       <div class="navbar-container">
-        <router-link to="/" class="nav-logo">Logo</router-link>
+        <router-link to="/" class="nav-logo">KAH</router-link>
         <div
           class="menu-icon"
           :class="{ active: isMenuOpen }"
