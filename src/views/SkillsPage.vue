@@ -1,12 +1,16 @@
 <template>
-  <div>
+  <div class="container">
     <div class="about-section">
       <h3>My Tech Stack</h3>
       <p>Technologies I have been working with</p>
     </div>
     <div class="stack">
       <div class="skill" v-for="(skill, index) in skills" :key="index">
-        <img :src="require(`../assets/images/${skill.image}`)" :alt="skill.name" class="skill-img" />
+        <img
+          :src="require(`../assets/images/${skill.image}`)"
+          :alt="skill.name"
+          class="skill-img"
+        />
         <p>{{ skill.name }}</p>
       </div>
     </div>
@@ -15,25 +19,31 @@
 
 <script setup>
 const skills = [
-  { name: 'HTML', image: 'html 5.png' },
-  { name: 'CSS', image: 'css.png' },
-  { name: 'JavaScript', image: 'js.png' },
-  { name: 'React', image: 'react.png' },
-  { name: 'Next.js', image: 'next-js-logo.png' },
-  { name: 'Vue', image: 'vue logo.png' },
-  { name: 'Ionic Vue', image: 'ionic-logo.png' },
-  { name: 'Bootstrap', image: 'bootstrap.png' },
-  { name: 'Tailwind CSS', image: 'tailwind.png' },
-  { name: 'Sass', image: 'sass.png' },
-  { name: 'Figma', image: 'figma-logo.png' },
-  { name: 'VS Code', image: 'vscode.png' },
-  { name: 'Git', image: 'git.png' },
-  { name: 'GitHub', image: 'github.png' },
-  { name: 'BitBucket', image: 'bitbucket-logo.png' }
+  { name: "HTML", image: "html 5.png" },
+  { name: "CSS", image: "css.png" },
+  { name: "JavaScript", image: "js.png" },
+  { name: "React", image: "react.png" },
+  { name: "Next.js", image: "next-js-logo.png" },
+  { name: "Vue", image: "vue logo.png" },
+  { name: "Ionic Vue", image: "ionic-logo.png" },
+  { name: "Bootstrap", image: "bootstrap.png" },
+  { name: "Tailwind CSS", image: "tailwind.png" },
+  { name: "Sass", image: "sass.png" },
+  { name: "Figma", image: "figma-logo.png" },
+  { name: "VS Code", image: "vscode.png" },
+  { name: "Git", image: "git.png" },
+  { name: "GitHub", image: "github.png" },
+  { name: "BitBucket", image: "bitbucket-logo.png" },
 ];
 </script>
 
 <style scoped>
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .about-section {
   text-align: center;
   margin-bottom: 2rem;

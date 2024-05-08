@@ -2,8 +2,16 @@
   <div class="projects">
     <h1 class="projects-title">Projects</h1>
     <div class="projects-list">
-      <div class="project-item" v-for="(project, index) in projects" :key="index">
-        <img :src="project.image" :alt="project.name" class="project-image">
+      <div
+        class="project-item"
+        v-for="(project, index) in projects"
+        :key="index"
+      >
+        <img
+          :src="require(`../assets/images/${project.image}`)"
+          :alt="project.name"
+          class="project-image"
+        />
         <div class="project-details">
           <h2>{{ project.name }}</h2>
           <p>{{ project.description }}</p>
@@ -17,38 +25,47 @@
 <script setup>
 const projects = [
   {
-    name: 'Project 1',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin varius justo ac orci luctus, eget vestibulum ligula sollicitudin.',
-    image: 'project1.jpg',
-    link: 'https://example.com/project1'
+    name: "PlugDrive",
+    description:
+      "PlugDrive is a web application that provides an OCPP (1.6 & 2.0) Platform for managing Electric Charging Terminals for both Operators & Drivers of Electric Cars.",
+    image: "plug-drive.jpg",
+    link: "https://www.linkedin.com/company/plugdrive-app/",
   },
   {
-    name: 'Project 2',
-    description: 'Sed luctus felis vel elit laoreet, nec bibendum purus dapibus. Nulla facilisi.',
-    image: 'project2.jpg',
-    link: 'https://example.com/project2'
+    name: "Pomodoro App",
+    description:
+      "Pomodoro App is a productivity tool based on the Pomodoro Technique, helping users manage their time and tasks effectively by breaking work into intervals separated by short breaks.",
+    image: "pomodoro.jpg",
+    link: "https://pomodoroheming.netlify.app/",
   },
-  // Add more projects as needed
+  {
+    name: "Countries Theme Switcher",
+    description:
+      "Countries Theme Switcher is a web application that allows users to explore countries around the world while dynamically changing the theme based on their preferences.",
+    image: "countries.jpg",
+    link: "https://countrieswithcolorthemeswitcher.netlify.app/",
+  },
+
 ];
 </script>
 
 <style scoped>
 .projects {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 40px 20px;
 }
 
 .projects-title {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
   text-align: center;
   margin-bottom: 40px;
 }
 
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
@@ -65,7 +82,7 @@ const projects = [
 
 .project-image {
   width: 100%;
-  height: 200px; /* Adjust as needed */
+  height: 200px;
   object-fit: cover;
 }
 
@@ -76,12 +93,12 @@ const projects = [
 .project-details h2 {
   font-size: 1.8rem;
   margin-bottom: 10px;
-  color: #333;
+  color: #fff;
 }
 
 .project-details p {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1rem;
+  color: #fff;
   margin-bottom: 15px;
 }
 
@@ -99,9 +116,9 @@ const projects = [
   background-color: #e64000;
 }
 
-@media screen and (max-width: 768px) {
-  .project-item {
-    border-radius: 5px;
+@media screen and (min-width: 769px) {
+  .project-image {
+    height: 300px;
   }
 }
 </style>
