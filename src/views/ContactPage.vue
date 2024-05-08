@@ -48,9 +48,7 @@ const formData = ref({
 });
 
 const submitForm = () => {
-  // Here you can implement the logic to send the form data (e.g., using Axios)
   console.log("Form submitted:", formData.value);
-  // Reset the form after submission
   formData.value = {
     name: "",
     email: "",

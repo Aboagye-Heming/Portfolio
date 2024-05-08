@@ -34,7 +34,7 @@ const projects = [
 
 <style scoped>
 .projects {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
 }
@@ -54,7 +54,7 @@ const projects = [
 
 .project-item {
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
@@ -65,7 +65,8 @@ const projects = [
 
 .project-image {
   width: 100%;
-  height: auto;
+  height: 200px; /* Adjust as needed */
+  object-fit: cover;
 }
 
 .project-details {
@@ -73,19 +74,20 @@ const projects = [
 }
 
 .project-details h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-bottom: 10px;
+  color: #333;
 }
 
 .project-details p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #666;
+  margin-bottom: 15px;
 }
 
 .project-link {
   display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
+  padding: 10px 20px;
   background-color: #ff4500;
   color: #fff;
   text-decoration: none;
@@ -98,8 +100,8 @@ const projects = [
 }
 
 @media screen and (max-width: 768px) {
-  .projects-list {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  .project-item {
+    border-radius: 5px;
   }
 }
 </style>

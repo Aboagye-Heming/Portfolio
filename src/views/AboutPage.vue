@@ -11,9 +11,9 @@
         </p>
         <p>
           I have expertise in a variety of programming languages and frameworks,
-          including HTML/CSS, JavaScript, Vue.js, React,and more. I am dedicated
-          to staying up-to-date with the latest technologies and best practices
-          to ensure that my work is always cutting-edge.
+          including HTML/CSS, JavaScript, Vue.js, React, and more. I am
+          dedicated to staying up-to-date with the latest technologies and best
+          practices to ensure that my work is always cutting-edge.
         </p>
         <p>
           Outside of coding, I enjoy spending time outdoors, exploring new
@@ -49,11 +49,10 @@
   </div>
 </template>
 
-<script setup></script>
-
 <style scoped>
 .about {
   padding: 40px 0;
+  background-color: #f9f9f9; /* Light gray background */
 }
 
 .container {
@@ -73,6 +72,7 @@
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
+  text-align: justify; /* Justify text for better readability */
 }
 
 .social-links {
@@ -83,13 +83,13 @@
 .social-link {
   display: inline-block;
   margin-right: 20px;
-  color: #fff;
+  color: #ff4500; /* Orange color for social links */
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #ff4500;
+  color: #ff4500; /* Retain orange color on hover */
 }
 </style>
