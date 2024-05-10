@@ -2,7 +2,7 @@
   <div class="contact">
     <h1>Contact Me</h1>
     <p>Have a question or want to work together? Feel free to get in touch!</p>
-    <form @submit.prevent="submitForm">
+    <form ref="form" @submit.prevent="submitForm">
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -40,6 +40,7 @@
 
 <script setup>
 import { ref } from "vue";
+import emailjs from "@emailjs/browser";
 
 const formData = ref({
   name: "",
@@ -48,7 +49,26 @@ const formData = ref({
 });
 
 const submitForm = () => {
-  console.log("Form submitted:", formData.value);
+  const emailjsServiceId = process.env.VUE_APP_EMAILJS_SERVICE_ID;
+  const emailjsTemplateId = process.env.VUE_APP_EMAILJS_TEMPLATE_ID;
+  const emailjsUserId = process.env.VUE_APP_EMAILJS_USER_ID;
+
+  emailjs
+    .sendForm(emailjsServiceId, emailjsTemplateId, ref.form, {
+      user_id: emailjsUserId,
+    })
+    .then(
+      () => {
+        console.log("SUCCESS!");
+        resetFormData();
+      },
+      (error) => {
+        console.log("FAILED...", error.text);
+      }
+    );
+};
+
+const resetFormData = () => {
   formData.value = {
     name: "",
     email: "",
