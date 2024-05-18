@@ -2,7 +2,7 @@
   <div class="contact">
     <h1>Contact Me</h1>
     <p>Have a question or want to work together? Feel free to get in touch!</p>
-    <form ref="form" @submit.prevent="submitForm">
+    <form @submit.prevent="submitForm($event.target)">
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -48,14 +48,14 @@ const formData = ref({
   message: "",
 });
 
-const submitForm = () => {
-  const emailjsServiceId = process.env.VUE_APP_EMAILJS_SERVICE_ID;
-  const emailjsTemplateId = process.env.VUE_APP_EMAILJS_TEMPLATE_ID;
-  const emailjsUserId = process.env.VUE_APP_EMAILJS_USER_ID;
+const submitForm = (form) => {
+  // const emailjsServiceId = process.env.VUE_APP_EMAILJS_SERVICE_ID;
+  // const emailjsTemplateId = process.env.VUE_APP_EMAILJS_TEMPLATE_ID;
+  // const emailjsUserId = process.env.VUE_APP_EMAILJS_USER_ID;
 
   emailjs
-    .sendForm(emailjsServiceId, emailjsTemplateId, ref.form, {
-      user_id: emailjsUserId,
+    .sendForm("service_sgoi8c6", "template_mmd2x03", form, {
+      publicKey: "PGpbdXi4YPJT78ZXq",
     })
     .then(
       () => {
@@ -63,7 +63,7 @@ const submitForm = () => {
         resetFormData();
       },
       (error) => {
-        console.log("FAILED...", error.text);
+        console.log("FAILED...", error);
       }
     );
 };
@@ -76,6 +76,11 @@ const resetFormData = () => {
   };
 };
 </script>
+
+<style scoped>
+/* Your CSS styles here */
+</style>
+
 
 <style scoped>
 .contact {

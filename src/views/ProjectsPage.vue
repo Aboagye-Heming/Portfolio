@@ -15,7 +15,15 @@
         <div class="project-details">
           <h2>{{ project.name }}</h2>
           <p>{{ project.description }}</p>
-          <a :href="project.link" class="project-link">View Project</a>
+          <a
+            v-if="
+              project.name !== 'Sparse Proximity Syndicate Application' &&
+              project.name !== 'Forecourt Management System'
+            "
+            :href="project.link"
+            class="project-link"
+            >View Project</a
+          >
         </div>
       </div>
     </div>
@@ -27,9 +35,23 @@ const projects = [
   {
     name: "PlugDrive",
     description:
-      "PlugDrive is a web application that provides an OCPP (1.6 & 2.0) Platform for managing Electric Charging Terminals for both Operators & Drivers of Electric Cars.",
+      "PlugDrive is a  comprehensive web and mobile application designed to provide an OCPP(Open Charge Point Protocol) platform,supporting versions 1.6 and 2.0. This platform is tailored for managing electric vehicle charging Terminals, catering to both operators and drivers of electric cars",
     image: "plug-drive.jpg",
     link: "https://www.linkedin.com/company/plugdrive-app/",
+  },
+  {
+    name: "Forecourt Management System",
+    description:
+      "The Forecourt Management System is designed to assist businesses in the fuel industry with managing and optimizing their operations.This system includes inventory management,remote monitoring,real-time reporting and other automated processes to enhance efficiency and productivity. ",
+    image: "fms.png",
+    // link: "https://www.linkedin.com/company/plugdrive-app/",
+  },
+  {
+    name: "Sparse Proximity Syndicate Application",
+    description:
+      "Sparse Proximity Syndicate (SPS) is a cutting-edge application that revolutionizes the payment and transaction process by offering unparalleled speed and convenience using biometric authentication with your palm.",
+    image: "sps.png",
+    // link: "https://www.linkedin.com/company/plugdrive-app/",
   },
   {
     name: "Pomodoro App",
@@ -45,7 +67,6 @@ const projects = [
     image: "countries.jpg",
     link: "https://countrieswithcolorthemeswitcher.netlify.app/",
   },
-
 ];
 </script>
 
