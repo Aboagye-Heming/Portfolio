@@ -19,6 +19,7 @@
   </div>
 </template>
 
+
 <style scoped>
 .hero {
   display: flex;
@@ -28,10 +29,13 @@
   flex-wrap: wrap;
   background-color: #1e272e;
   color: #fff;
+  padding: 0 20px;
 }
 
 .hero-content {
   text-align: center;
+  flex: 1 1 40%;
+  min-width: 300px;
 }
 
 .hero-title {
@@ -72,11 +76,17 @@
   transform: scale(1.05);
 }
 
+.hero-image {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+}
+
 .hero-img {
   width: 100%;
   max-width: 580px;
   height: auto;
   border-radius: 2rem;
 }
-
 </style>

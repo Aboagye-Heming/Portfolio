@@ -57,7 +57,8 @@
 <style scoped>
 .about {
   padding: 40px 0;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background-color: #1e272e;
 }
 
 .container {
@@ -68,14 +69,14 @@
 
 .about-title {
   font-size: 2.5rem;
-  color: #333;
+  color: #fff;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .about-content {
   font-size: 1.1rem;
-  color: #666;
+  color: #fff;
   line-height: 1.6;
   text-align: justify;
 }

@@ -33,9 +33,9 @@
 <script setup>
 const projects = [
   {
-    name: "PlugDrive",
+    name: "PlugDrive Web and Mobile" ,
     description:
-      "PlugDrive is a  comprehensive web and mobile application designed to provide an OCPP(Open Charge Point Protocol) platform,supporting versions 1.6 and 2.0. This platform is tailored for managing electric vehicle charging Terminals, catering to both operators and drivers of electric cars",
+      "PlugDrive is a  comprehensive web and mobile application designed to provide an OCPP(Open Charge Point Protocol) platform,supporting versions 1.6 and 2.0. This platform is tailored for managing electric vehicle charging Terminals, catering to both operators and drivers of electric cars.",
     image: "plug-drive.jpg",
     link: "https://www.linkedin.com/company/plugdrive-app/",
   },
@@ -95,6 +95,7 @@ const projects = [
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .project-item:hover {

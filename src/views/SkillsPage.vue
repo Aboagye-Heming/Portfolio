@@ -39,7 +39,7 @@ const skills = [
 
 <style scoped>
 .container {
-  max-width: 800px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -78,5 +78,13 @@ const skills = [
 .skill p {
   margin: 0;
   font-size: 1.2rem;
+}
+
+@media screen and (max-width: 769px) {
+  .skill {
+    margin: 0rem 0rem;
+    gap: 0.5rem;
+    
+  }
 }
 </style>
