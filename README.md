@@ -33,7 +33,7 @@ Beyond coding, I find joy in exploring the great outdoors, delving into new tech
 - **Styling**: CSS, SCSS
 - **Build Tools**: Vite, Webpack
 - **Version Control**: Git, GitHub
-- **Package Management**: npm, Yarn
+- **Package Management**: npm
 
 ## Installation
 
