@@ -5,7 +5,10 @@
       <h2 class="hero-name">Kwabena Aboagye-Heming</h2>
       <h3 class="hero-subtitle">Software Developer</h3>
       <p class="hero-description">Specializing in Web and Mobile Development</p>
-      <a href="../assets/pdf/KWABENA_ABOAGYE-HEMING_resume.pdf" download class="hero-cta"
+      <a
+        href="../assets/pdf/KWABENA_ABOAGYE-HEMING_resume.pdf"
+        download
+        class="hero-cta"
         >Download Resume</a
       >
     </div>
@@ -18,7 +21,6 @@
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .hero {
@@ -69,6 +71,7 @@
   font-size: 1.2rem;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-bottom: 1.2rem;
 }
 
 .hero-cta:hover {
@@ -89,6 +92,4 @@
   height: auto;
   border-radius: 2rem;
 }
-
-
 </style>
