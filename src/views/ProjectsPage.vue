@@ -67,6 +67,13 @@ const projects = [
     image: "countries.jpg",
     link: "https://countrieswithcolorthemeswitcher.netlify.app/",
   },
+  {
+    name: "Weather App",
+    description:
+      "The Weather App is a web application built with Vue.js that enables users to retrieve current weather information and a 4-day forecast for any city worldwide. Leveraging the OpenWeatherMap API, this app provides real-time weather data with a user-friendly interface.",
+    image: "weather-icon-set-vector.jpg",
+    link: "https://weather-app-321real-time.netlify.app/",
+  },
 ];
 </script>
 
