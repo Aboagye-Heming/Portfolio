@@ -19,6 +19,10 @@ Hello, I'm Kwabena Aboagye-Heming, a dedicated software developer with a passion
 
 Beyond coding, I find joy in exploring the great outdoors, delving into new technologies, and engaging in lifelong learning endeavors. I firmly believe in the power of collaboration and am always eager to collaborate with like-minded individuals to tackle exciting challenges and bring innovative ideas to life.
 
+## Portfolio Deployment: 
+You can access the deployed portfolio at https://kwabena-aboagye-heming.netlify.app/
+
+
 ## Features
 
 - **Responsive Design**: Optimized for all device sizes.
