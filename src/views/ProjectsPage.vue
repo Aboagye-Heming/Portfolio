@@ -1,7 +1,9 @@
 <template>
   <div class="projects">
     <h1 class="projects-title">Projects</h1>
-    <div class="projects-list">
+    <Loader v-if="loading" />
+
+    <div v-else class="projects-list">
       <div
         class="project-item"
         v-for="(project, index) in projects"
@@ -15,14 +17,11 @@
         <div class="project-details">
           <h2>{{ project.name }}</h2>
           <p>{{ project.description }}</p>
-          <a
-            v-if="
-              project.name !== 'Sparse Proximity Syndicate Application' &&
-              project.name !== 'Forecourt Management System'
-            "
-            :href="project.link"
-            class="project-link"
+          <a v-if="project.link" :href="project.link" class="project-link"
             >View Project</a
+          >
+          <span v-else class="project-link-disabled"
+            >Project Link Unavailable</span
           >
         </div>
       </div>
@@ -31,11 +30,16 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+import Loader from "@/components/LoaderSpinner.vue";
+
+const loading = ref(true);
+
 const projects = [
   {
     name: "PlugDrive Web and Mobile",
     description:
-      "PlugDrive is a  comprehensive web and mobile application designed to provide an OCPP(Open Charge Point Protocol) platform,supporting versions 1.6 and 2.0. This platform is tailored for managing electric vehicle charging Terminals, catering to both operators and drivers of electric cars.",
+      "PlugDrive is a comprehensive web and mobile application designed to provide an OCPP(Open Charge Point Protocol) platform, supporting versions 1.6 and 2.0. This platform is tailored for managing electric vehicle charging Terminals, catering to both operators and drivers of electric cars.",
     image: "plug-drive.jpg",
     link: "https://www.linkedin.com/company/plugdrive-app/",
   },
@@ -75,6 +79,12 @@ const projects = [
     link: "https://weather-app-321real-time.netlify.app/",
   },
 ];
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 2000);
+});
 </script>
 
 <style scoped>
@@ -131,18 +141,27 @@ const projects = [
   margin-bottom: 15px;
 }
 
-.project-link {
+.project-link,
+.project-link-disabled {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #ff4500;
-  color: #fff;
-  text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
+.project-link {
+  background-color: #ff4500;
+  color: #fff;
+  text-decoration: none;
+}
+
 .project-link:hover {
   background-color: #e64000;
+}
+
+.project-link-disabled {
+  background-color: #999;
+  color: #fff;
 }
 
 @media screen and (min-width: 769px) {
