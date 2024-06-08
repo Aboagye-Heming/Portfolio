@@ -12,9 +12,8 @@
         >Download Resume</a
       >
     </div>
-    <Loader v-if="loading" />
 
-    <div v-else class="hero-image">
+    <div class="hero-image">
       <img
         src="../assets/images/myImage.jpg"
         alt="Heming's Image"
@@ -24,16 +23,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from "vue";
-import Loader from "@/components/LoaderSpinner.vue";
-
-const loading = ref(true);
-
-setTimeout(() => {
-  loading.value = false;
-}, 1000);
-</script>
+<script setup></script>
 
 <style scoped>
 .hero {
