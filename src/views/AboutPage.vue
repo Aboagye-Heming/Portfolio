@@ -1,71 +1,93 @@
 <template>
   <div class="about">
     <div class="container">
-      <h1 class="about-title">About Me</h1>
-      <div class="about-content">
-        <p>
-          Hello, I'm Kwabena Aboagye-Heming, a dedicated software developer with
-          a passion for crafting exceptional web and mobile solutions. With a
-          solid background in programming and several years of hands-on
-          experience, I have honed my skills to deliver high-quality software
-          tailored to meet the unique needs of clients and users alike.
-        </p>
-        <br />
-        <p>
-          My journey in the world of technology has equipped me with proficiency
-          in various programming languages and frameworks, including HTML/CSS,
-          JavaScript, Vue.js, React, and more. I am committed to continuous
-          learning and staying abreast of the latest advancements in the field,
-          ensuring that my work remains at the forefront of innovation.
-        </p>
-        <br />
-        <p>
-          Beyond coding, I find joy in exploring the great outdoors, delving
-          into new technologies, and engaging in lifelong learning endeavors. I
-          firmly believe in the power of collaboration and am always eager to
-          collaborate with like-minded individuals to tackle exciting challenges
-          and bring innovative ideas to life.
-        </p>
-        <div class="social-links">
-          <a
-            href="https://www.linkedin.com/in/kwaheming/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            >LinkedIn</a
-          >
-          <a
-            href="https://github.com/Aboagye-Heming"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            >Github</a
-          >
-          <a
-            href="https://twitter.com/kwabena_heming"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            >Twitter</a
-          >
+      <div class="profile ">
+  <h3>About Me</h3>
+  <br>
+
+  <p>
+    Hi there! I'm Kwabena Aboagye-Heming, a proactive Frontend Developer with a passion for creating dynamic and responsive web and mobile applications. I specialize in using modern frameworks like Vue.js, React, React Native, and Ionic Vue to deliver seamless user experiences.
+  </p>
+  <br>
+  <p>
+    I thrive on challenges and am enthusiastic about transitioning to full-stack development. My problem-solving skills, coupled with a focus on performance optimization, allow me to tackle complex problems efficiently.
+  </p>
+  <p>
+    With a keen eye for UI/UX design, I ensure that every project I work on not only meets but exceeds user expectations. I have experience collaborating with cross-functional teams and communicating technical details effectively to stakeholders.
+  </p>
+  <br>
+
+  <p>
+    Outside of work, I'm always seeking opportunities to expand my skills and stay updated with the latest frontend development trends. Let's collaborate and bring your ideas to life!
+  </p>
+</div>
+
+      <div class="employment-history">
+        <input type="checkbox" id="accordion-4" class="accordion-checkbox" />
+        <label for="accordion-4" class="accordion-heading">Employment History <span class="accordion-icon">▼</span></label>
+        <div class="accordion-content">
+          <div class="job" v-for="(job, index) in employmentHistory" :key="index">
+            <h4>{{ job.title }}</h4>
+            <p class="job-date">{{ job.date }}</p>
+            <ul>
+              <li v-for="(task, index) in job.tasks" :key="index" class="fade-scroll">
+                {{ task }}
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="accordion">
-        <input type="checkbox" id="accordion-1" class="accordion-checkbox" />
-        <label for="accordion-1" class="accordion-heading"
-          >Reviews <span class="accordion-icon">▼</span></label
-        >
+      <div class="freelancing">
+        <input type="checkbox" id="accordion-5" class="accordion-checkbox" />
+        <label for="accordion-5" class="accordion-heading">Freelancing <span class="accordion-icon">▼</span></label>
         <div class="accordion-content">
-          <div v-for="(review, index) in reviews" :key="index" class="review">
+          <p class="freelancing-text fade-scroll">
+            I have also been doing freelancing work, collaborating with various clients on web and mobile development
+            projects. Responsibilities include:
+          <ul>
+            <li>Working closely with clients to understand their requirements and deliver tailored solutions.</li>
+            <li>Developing responsive and scalable web and mobile applications.</li>
+            <li>Providing ongoing support and maintenance for existing projects.</li>
+          </ul>
+          </p>
+        </div>
+      </div>
+
+      <div class="education">
+        <input type="checkbox" id="accordion-2" class="accordion-checkbox" />
+        <label for="accordion-2" class="accordion-heading">Education <span class="accordion-icon">▼</span></label>
+        <div class="accordion-content">
+          <ul>
+            <li v-for="(edu, index) in educationList" :key="index" class="fade-scroll">
+              {{ edu }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="certification">
+        <input type="checkbox" id="accordion-3" class="accordion-checkbox" />
+        <label for="accordion-3" class="accordion-heading">Certification <span class="accordion-icon">▼</span></label>
+        <div class="accordion-content">
+          <ul>
+            <li v-for="(cert, index) in certificationList" :key="index" class="fade-scroll">
+              {{ cert }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reviews">
+        <input type="checkbox" id="accordion-1" class="accordion-checkbox" />
+        <label for="accordion-1" class="accordion-heading">Reviews <span class="accordion-icon">▼</span></label>
+        <div class="accordion-content">
+          <div class="review fade-scroll" v-for="(review, index) in reviews" :key="index">
+            <img :src="review.image" alt="Reviewer" class="reviewer-image" />
             <div class="review-text">
               <p class="review-text-main">{{ review.text }}</p>
-              <h4 class="review-author">
-                {{ review.author }}
-              </h4>
-              <p>{{ review.title }}</p>
+              <h4 class="review-author">{{ review.author }}</h4>
             </div>
-            <img :src="review.image" alt="Reviewer" class="reviewer-image" />
           </div>
         </div>
       </div>
@@ -74,28 +96,102 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
+
+const employmentHistory = ref([
+  {
+    title: "Product Developer, Sourcertz Technologies Limited, Ghana (Remote)",
+    date: "September 2023 - Present",
+    tasks: [
+      "Frontend-Backend Integration: Collaborated with cross-functional teams to integrate frontend and backend infrastructure using Vue 2 & 3 and Firebase for real-time notifications.",
+      "UI/UX Design Implementation: Translated complex UI designs into high-quality code, enhancing user interface and user experience with Vue.js.",
+      "Mobile Development: Developed and maintained mobile applications using Ionic Vue, ensuring a consistent user experience across web and mobile platforms.",
+      "Responsive Design & Compatibility: Implemented responsive design principles and ensured cross-browser compatibility using VueBootstrap, VueGoodTable, ApexChart, and Google Maps.",
+      "Stakeholder Communication: Presented products to stakeholders, effectively communicating technical details and project progress.",
+    ],
+  },
+  {
+    title: "Frontend Developer, Harblot, Ghana (Remote)",
+    date: "July 2023 - Present",
+    tasks: [
+      "Agile Development: Utilize Agile methodologies and participate in scrum meetings to ensure efficient project management.",
+      "UI/UX Enhancements: Focus on UI/UX improvements, building a seamless user interface and experience.",
+      "Continuous Learning: Engage in continuous learning to stay updated with the latest frontend development trends and best practices.",
+      "Feature Development: Develop new features and maintain existing ones using React Native for mobile development and React for web development.",
+      "Git CI/CD: Implement and maintain CI/CD pipelines using Git to ensure efficient and reliable deployment processes.",
+    ],
+  },
+]);
+
+const educationList = ref([
+  "Software Development, Amalitech Ghana, Takoradi (November 2022 - September 2023)",
+  "Front-End Engineer Career Path, Codeacademy (January 2023 - June 2023)",
+  "BA Geography And Rural Development, Kwame Nkrumah University of Science and Technology, Kumasi (August 2015 - September 2019)",
+]);
+
+const certificationList = ref([
+  "Legacy JavaScript Algorithms and Data Structures, FreecodeCamp (May 2024)",
+  "Typescript, Codeacademy (April 2023 - May 2023)",
+  "Vue.Js, Codeacademy (March 2023 - April 2023)",
+  "Error Handling, Codeacademy (February 2023 - March 2023)",
+  "Comprehensive Javscript, Codeacademy (December 2022 - March 2023)",
+  "Responsive Web Design, Freecodecamp (October 2022 - November 2022)",
+]);
 
 const reviews = ref([
   {
     text: "Kwabena is an exceptional developer with a keen eye for detail. His dedication to his craft and ability to deliver outstanding results make him a valuable asset to any team.",
     author: "Gideon Assafuah",
-    title: "Senior Software Developer",
     image: require("@/assets/images/myImage.jpg"),
   },
   {
     text: "I've had the pleasure of working with Kwabena on several projects, and I'm continually impressed by his professionalism and expertise. He consistently goes above and beyond to ensure project success.",
     author: "Enoch Sutherland",
-    title: "Chief Technical Officer",
     image: require("@/assets/images/myImage.jpg"),
   },
 ]);
+
+let lastScrollY = window.scrollY;
+
+const handleScroll = () => {
+  const elements = document.querySelectorAll(".fade-scroll");
+  elements.forEach((element) => {
+    const rect = element.getBoundingClientRect();
+    const elemTop = rect.top;
+    const elemBottom = rect.bottom;
+    
+    const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    
+    if (isVisible) {
+      element.classList.add("fade-in");
+      element.classList.remove("fade-out");
+    } else {
+      if (window.scrollY < lastScrollY) {
+        element.classList.add("fade-in");
+        element.classList.remove("fade-out");
+      } else {
+        element.classList.remove("fade-in");
+        element.classList.add("fade-out");
+      }
+    }
+  });
+  
+  lastScrollY = window.scrollY;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style scoped>
 .about {
   padding: 40px 0;
-  background-color: #1e272e;
 }
 
 .container {
@@ -106,45 +202,88 @@ const reviews = ref([
 
 .about-title {
   font-size: 2.5rem;
-  color: #fff;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.about-content {
-  font-size: 1.1rem;
-  color: #fff;
-  line-height: 1.6;
-  text-align: justify;
-}
-
-.social-links {
-  margin-top: 20px;
+.about-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
   text-align: center;
 }
-
-.social-link {
-  display: inline-block;
-  margin-right: 20px;
+.profile h3{
+  cursor: pointer;
+  font-size: 1.5rem;
   color: #ff4500;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
+}
+.profile,
+.employment-history,
+.education,
+.certification,
+.reviews,
+.freelancing {
+  margin-bottom: 20px;
 }
 
-.social-link:hover {
+.job {
+  margin-bottom: 20px;
+}
+
+h3 {
   color: #ff4500;
+}
+
+.job h4 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.job-date {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.review {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.reviewer-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.review-text {
+  font-style: italic;
+}
+
+.review-text-main {
+  max-width: 40rem;
+  margin-bottom: 1rem;
+}
+
+.review-author {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.freelancing-text {
+  margin-top: 20px;
 }
 
 /* Accordion styles */
-.accordion {
-  margin-top: 40px;
-}
-
-.accordion-checkbox {
-  display: none;
-}
-
 .accordion-heading {
   cursor: pointer;
   font-size: 1.5rem;
@@ -152,55 +291,45 @@ const reviews = ref([
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .accordion-icon {
-  transition: transform 0.3s ease;
+  transition: transform 1.14s ease;
 }
 
-.accordion-checkbox:checked + .accordion-heading .accordion-icon {
+.accordion-checkbox {
+  display: none;
+}
+
+.accordion-checkbox:checked+.accordion-heading .accordion-icon {
   transform: rotate(180deg);
 }
 
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.74s ease;
 }
 
-.accordion-checkbox:checked + .accordion-heading + .accordion-content {
+.accordion-checkbox:checked+.accordion-heading+.accordion-content {
   max-height: 1000px;
 }
 
-.review {
-  margin-top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Animation */
+.fade-scroll {
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(20px);
 }
 
-.reviewer-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 15px;
-  transition: transform 0.3s ease;
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.review:hover .reviewer-image {
-  transform: scale(1.1);
-}
-
-.review-text {
-  font-style: italic;
-}
-.review-text-main{
-  max-width: 40rem;
-  margin-bottom: 0.6rem;
-}
-
-.review-author {
-  margin-top: 5px;
-  font-weight: bold;
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
 }
 </style>
