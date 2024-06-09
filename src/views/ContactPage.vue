@@ -2,7 +2,7 @@
   <div class="contact">
     <h1>Contact Me</h1>
     <p>Have a question or want to work together? Feel free to get in touch!</p>
-    <form @submit.prevent="submitForm($event.target)">
+    <form @submit.prevent="submitForm">
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -39,48 +39,47 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import emailjs from "@emailjs/browser";
+import { ref } from 'vue';
+import emailjs from '@emailjs/browser';
 
 const formData = ref({
-  name: "",
-  email: "",
-  message: "",
+  name: '',
+  email: '',
+  message: ''
 });
 
-const submitForm = (form) => {
-  // const emailjsServiceId = process.env.VUE_APP_EMAILJS_SERVICE_ID;
-  // const emailjsTemplateId = process.env.VUE_APP_EMAILJS_TEMPLATE_ID;
-  // const emailjsUserId = process.env.VUE_APP_EMAILJS_USER_ID;
+const submitForm = () => {
+  const serviceId = process.env.VUE_APP_EMAILJS_SERVICE_ID;
+  const templateId = process.env.VUE_APP_EMAILJS_TEMPLATE_ID;
+  const userId = process.env.VUE_APP_EMAILJS_USER_ID;
+
+  const templateParams = {
+    name: formData.value.name,
+    email: formData.value.email,
+    message: formData.value.message
+  };
 
   emailjs
-    .sendForm("service_sgoi8c6", "template_mmd2x03", form, {
-      publicKey: "PGpbdXi4YPJT78ZXq",
-    })
+    .send(serviceId, templateId, templateParams, userId)
     .then(
       () => {
-        console.log("SUCCESS!");
+        console.log('SUCCESS!');
         resetFormData();
       },
       (error) => {
-        console.log("FAILED...", error);
+        console.log('FAILED...', error);
       }
     );
 };
 
 const resetFormData = () => {
   formData.value = {
-    name: "",
-    email: "",
-    message: "",
+    name: '',
+    email: '',
+    message: ''
   };
 };
 </script>
-
-<style scoped>
-/* Your CSS styles here */
-</style>
-
 
 <style scoped>
 .contact {
@@ -143,9 +142,11 @@ button:hover {
   .contact {
     padding: 20px;
   }
+
   .contact h1 {
     font-size: 2rem;
   }
+
   .contact p {
     font-size: 1rem;
   }
