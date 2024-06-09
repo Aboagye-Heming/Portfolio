@@ -1,26 +1,27 @@
 <template>
   <div class="about">
     <div class="container">
-      <div class="profile ">
-  <h3>About Me</h3>
-  <br>
-
-  <p>
-    Hi there! I'm Kwabena Aboagye-Heming, a proactive Frontend Developer with a passion for creating dynamic and responsive web and mobile applications. I specialize in using modern frameworks like Vue.js, React, React Native, and Ionic Vue to deliver seamless user experiences.
-  </p>
-  <br>
-  <p>
-    I thrive on challenges and am enthusiastic about transitioning to full-stack development. My problem-solving skills, coupled with a focus on performance optimization, allow me to tackle complex problems efficiently.
-  </p>
-  <p>
-    With a keen eye for UI/UX design, I ensure that every project I work on not only meets but exceeds user expectations. I have experience collaborating with cross-functional teams and communicating technical details effectively to stakeholders.
-  </p>
-  <br>
-
-  <p>
-    Outside of work, I'm always seeking opportunities to expand my skills and stay updated with the latest frontend development trends. Let's collaborate and bring your ideas to life!
-  </p>
-</div>
+      <div class="profile">
+        <h3>About Me</h3>
+        <br />
+        <p>
+          Hi there! I'm Kwabena Aboagye-Heming, a proactive Frontend Developer with a passion for creating dynamic and responsive web and mobile applications. I specialize in using modern frameworks like Vue.js, React, React Native, and Ionic Vue to deliver seamless user experiences.
+        </p>
+        <br />
+        <p>
+          I thrive on challenges and am enthusiastic about transitioning to full-stack development. My problem-solving skills, coupled with a focus on performance optimization, allow me to tackle complex problems efficiently.
+        </p>
+        <p>
+          With a keen eye for UI/UX design, I ensure that every project I work on not only meets but exceeds user expectations. I have experience collaborating with cross-functional teams and communicating technical details effectively to stakeholders.
+        </p>
+        <br />
+        <p>
+          Outside of work, I'm always seeking opportunities to expand my skills and stay updated with the latest frontend development trends. Let's collaborate and bring your ideas to life!
+        </p>
+        <div class="resume-button-container">
+          <a href="../assets/pdf/KWABENA_ABOAGYE-HEMING_resume.pdf" download class="hero-cta">Download Resume</a>
+        </div>
+      </div>
 
       <div class="employment-history">
         <input type="checkbox" id="accordion-4" class="accordion-checkbox" />
@@ -43,8 +44,7 @@
         <label for="accordion-5" class="accordion-heading">Freelancing <span class="accordion-icon">▼</span></label>
         <div class="accordion-content">
           <p class="freelancing-text fade-scroll">
-            I have also been doing freelancing work, collaborating with various clients on web and mobile development
-            projects. Responsibilities include:
+            I have also been doing freelancing work, collaborating with various clients on web and mobile development projects. Responsibilities include:
           <ul>
             <li>Working closely with clients to understand their requirements and deliver tailored solutions.</li>
             <li>Developing responsive and scalable web and mobile applications.</li>
@@ -159,9 +159,9 @@ const handleScroll = () => {
     const rect = element.getBoundingClientRect();
     const elemTop = rect.top;
     const elemBottom = rect.bottom;
-    
-    const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
-    
+
+    const isVisible = elemTop >= 0 && elemBottom <= window.innerHeight;
+
     if (isVisible) {
       element.classList.add("fade-in");
       element.classList.remove("fade-out");
@@ -175,7 +175,7 @@ const handleScroll = () => {
       }
     }
   });
-  
+
   lastScrollY = window.scrollY;
 };
 
@@ -211,7 +211,7 @@ onUnmounted(() => {
   margin-bottom: 40px;
   text-align: center;
 }
-.profile h3{
+.profile h3 {
   cursor: pointer;
   font-size: 1.5rem;
   color: #ff4500;
@@ -250,6 +250,24 @@ ul {
 
 li {
   margin-bottom: 5px;
+}
+
+.hero-cta {
+  display: inline-block;
+  background-color: #ff5722;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.hero-cta:hover {
+  background-color: #ff7043;
+  transform: scale(1.05);
 }
 
 .review {
@@ -302,7 +320,7 @@ li {
   display: none;
 }
 
-.accordion-checkbox:checked+.accordion-heading .accordion-icon {
+.accordion-checkbox:checked + .accordion-heading .accordion-icon {
   transform: rotate(180deg);
 }
 
@@ -312,7 +330,7 @@ li {
   transition: max-height 0.74s ease;
 }
 
-.accordion-checkbox:checked+.accordion-heading+.accordion-content {
+.accordion-checkbox:checked + .accordion-heading + .accordion-content {
   max-height: 1000px;
 }
 
@@ -331,5 +349,11 @@ li {
 .fade-out {
   opacity: 0;
   transform: translateY(20px);
+}
+
+/* Resume Button Container */
+.resume-button-container {
+  display: flex;
+  justify-content: center;
 }
 </style>
