@@ -35,17 +35,25 @@
       </div>
       <button type="submit">Send Message</button>
     </form>
+    <Toast v-if="toast.visible" :message="toast.message" :type="toast.type" />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import emailjs from '@emailjs/browser';
+import { ref } from "vue";
+import emailjs from "@emailjs/browser";
+import Toast from "@/components/ToastLoader.vue";
 
 const formData = ref({
-  name: '',
-  email: '',
-  message: ''
+  name: "",
+  email: "",
+  message: "",
+});
+
+const toast = ref({
+  visible: false,
+  message: "",
+  type: "success",
 });
 
 const submitForm = () => {
@@ -56,27 +64,35 @@ const submitForm = () => {
   const templateParams = {
     name: formData.value.name,
     email: formData.value.email,
-    message: formData.value.message
+    message: formData.value.message,
   };
 
-  emailjs
-    .send(serviceId, templateId, templateParams, userId)
-    .then(
-      () => {
-        console.log('SUCCESS!');
-        resetFormData();
-      },
-      (error) => {
-        console.log('FAILED...', error);
-      }
-    );
+  emailjs.send(serviceId, templateId, templateParams, userId).then(
+    () => {
+      showToast("Your message has been sent successfully!", "success");
+      resetFormData();
+    },
+    (error) => {
+      showToast("Failed to send message. Please try again later.", "error");
+      console.log("FAILED...", error);
+    }
+  );
+};
+
+const showToast = (message, type) => {
+  toast.value.message = message;
+  toast.value.type = type;
+  toast.value.visible = true;
+  setTimeout(() => {
+    toast.value.visible = false;
+  }, 3000);
 };
 
 const resetFormData = () => {
   formData.value = {
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   };
 };
 </script>
