@@ -56,14 +56,14 @@
       </div>
       <p>Connect with me on my social profile:</p>
       <div class="social-media">
-        <a href="https://github.com/your-github-profile" target="_blank">
-          <img src="github-icon.png" alt="Github" class="social-icon" />
+        <a href="https://github.com/Aboagye-Heming" target="_blank">
+          <img src="../assets//images/github.png" alt="Github" class="social-icon" />
         </a>
-        <a href="https://github.com/your-github-profile" target="_blank">
-          <img src="github-icon.png" alt="LinkedIn" class="social-icon" />
+        <a href="www.linkedin.com/in/kwaheming" target="_blank">
+          <img src="../assets/images/linkedin.png" alt="LinkedIn" class="social-icon" />
         </a>
-        <a href="https://github.com/your-github-profile" target="_blank">
-          <img src="github-icon.png" alt="Twitter" class="social-icon" />
+        <a href="https://x.com/kwabena_heming" target="_blank">
+          <img src="../assets/images/xlogo.png" alt="X" class="social-icon" />
         </a>
       </div>
     </div>

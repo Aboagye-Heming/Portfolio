@@ -87,6 +87,7 @@
             <div class="review-text">
               <p class="review-text-main">{{ review.text }}</p>
               <h4 class="review-author">{{ review.author }}</h4>
+              <h4 class="review-author">{{ review.title }}</h4>
             </div>
           </div>
         </div>
@@ -139,16 +140,20 @@ const certificationList = ref([
 ]);
 
 const reviews = ref([
+{
+    text: "I've had the pleasure of working with Kwabena on several projects, and I'm continually impressed by his professionalism and expertise. He consistently goes above and beyond to ensure project success.",
+    author: "Enoch Sutherland",
+    image: require("@/assets/images/Enoch.jpg"),
+    title: "CTO"
+  },
   {
     text: "Kwabena is an exceptional developer with a keen eye for detail. His dedication to his craft and ability to deliver outstanding results make him a valuable asset to any team.",
     author: "Gideon Assafuah",
-    image: require("@/assets/images/myImage.jpg"),
+    image: require("@/assets/images/Gideon.jpg"),
+    title: "Senior Developer"
+
   },
-  {
-    text: "I've had the pleasure of working with Kwabena on several projects, and I'm continually impressed by his professionalism and expertise. He consistently goes above and beyond to ensure project success.",
-    author: "Enoch Sutherland",
-    image: require("@/assets/images/myImage.jpg"),
-  },
+ 
 ]);
 
 let lastScrollY = window.scrollY;

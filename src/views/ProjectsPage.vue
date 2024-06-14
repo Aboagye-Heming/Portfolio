@@ -21,7 +21,7 @@
             >View Project</a
           >
           <span v-else class="project-link-disabled"
-            >Project Link Unavailable</span
+            >Stay tuned for updates</span
           >
         </div>
       </div>
